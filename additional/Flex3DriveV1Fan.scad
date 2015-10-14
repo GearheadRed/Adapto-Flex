@@ -4,6 +4,7 @@
 include <../inc/configuration.scad>
 use <../inc/polyarc.scad>
 
+rotate([0,-90,0])
 FlexFan();
 
 module FlexFan(){
