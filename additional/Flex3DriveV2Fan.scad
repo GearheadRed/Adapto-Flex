@@ -42,8 +42,12 @@ module FlexFan(){
                 }
                 
                 // pico body cutout
-                translate([0, 12, -1])
-                    cube([10.5, 24, 6]);
+				difference(){
+					translate([0, 12, 0])
+						cube([10.5, 24, 9.5]);
+					translate([31.5/2+5, 24, -1])
+						polycyl(d=31.5, h=11);
+				}
                 translate([13+7.2, 20, 0])
                     polycyl(d=15.5, h=40);
                 translate([13+7.2, 10, -1])
@@ -71,6 +75,10 @@ module FlexFan(){
         translate([-9, 31, 5.5])
             rotate([0, 90, 0])
             polyhole(d=6, h=6);
+		
+		// extruder slot mount plate
+		translate([31.5/2+5, 24, -1])
+			polycyl(d=32, h=4.75);
         
         // fan mount holes
         translate([-9, 40-3.5, 2.5])
