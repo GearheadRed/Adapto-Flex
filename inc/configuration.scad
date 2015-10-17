@@ -69,3 +69,4 @@ thickness=5;		// thickness of walls etc. in parts
 pullyDiameter=12.2;	// GT2-20 toothed section diameter
 smoothRodOffset=thickness*2+2+smoothRod/2;	// how far the centre of the z smooth rods are from the frame
 Flex3Drive=true;	// If the Flex3Drive is used
+carriageDrop=15;	// From center of carriage to top mounting surface on extruder mounts
