@@ -19,11 +19,11 @@ module FlexFan(){
                 union(){ // union 1
                     // mount
                     translate([-8, 0, 0])
-                    cube([8, 40, 39]);
+                    cube([8, 40, 40]);
                     
                     // duct
                     hull(){
-                        translate([-8, 20, 19])
+                        translate([-8, 20, 20])
                             rotate([0,90,0])
                             polycyl(d=40, h=1);
                         translate([13+7.2, 20-8, 4])
@@ -34,7 +34,7 @@ module FlexFan(){
                 
                 // fan duct
                 hull(){
-                    translate([-9, 20, 19])
+                    translate([-9, 20, 20])
                         rotate([0,90,0])
                         polyhole(d=37.5, h=1);
                     translate([13+7.2, 20-7, 4])
@@ -44,25 +44,21 @@ module FlexFan(){
                 // pico body cutout
 				difference(){
 					translate([0, 12, 0])
-						cube([10.5, 24, 9.5]);
+						cube([10.5, 24, 9]);
 					translate([31.5/2+5, 24, -1])
-						polycyl(d=31.5, h=11);
+						polycyl(d=31, h=11);
 				}
                 translate([13+7.2, 20, 0])
                     polycyl(d=15.5, h=40);
                 translate([13+7.2, 10, -1])
                     cube([10, 20, 30]);
                 
-                // flat bottom
-                translate([-20, -20, -10])
-                    cube([80, 80, 10]);
-                
             } // end difference 1
             
             // extruder tab
             translate([-3, 12, 0])
                 cube([3, 24, 9]);
-        
+
         } // end union 2
         
         // extruder mount holes
@@ -79,18 +75,25 @@ module FlexFan(){
 		// extruder slot mount plate
 		translate([31.5/2+5, 24, -1])
 			polycyl(d=32, h=4.75);
+		
+		translate([20, 24.5, 0])
+			rotate([0,0,81.5])
+			cube([3, 15, 9.5]);
+		translate([10, 15, 0])
+			rotate([0,0,-88.2])
+			cube([3, 15, 9.5]);
         
         // fan mount holes
-        translate([-9, 40-3.5, 2.5])
+        translate([-9, 40-3.5, 3.5])
             rotate([0, 90, 0])
             polyhole(d=3, h=10);
-        translate([-9, 3.5, 2.5])
+        translate([-9, 3.5, 3.5])
             rotate([0, 90, 0])
             polyhole(d=3, h=10);
-        translate([-9, 40-3.5, 39-3.5])
+        translate([-9, 40-3.5, 40-3.5])
             rotate([0, 90, 0])
             polyhole(d=3, h=10);
-        translate([-9, 3.5, 39-3.5])
+        translate([-9, 3.5, 40-3.5])
             rotate([0, 90, 0])
             polyhole(d=3, h=10);
             
