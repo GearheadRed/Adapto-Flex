@@ -21,27 +21,30 @@ translate([30, 5, 0])
 module bedBlock(){
 
 	difference(){
+		
 		union(){
 			// block
 			translate([0, 0, 0])
 				cube([20, 20, 15]);
-			// glass plate restrainer
-			translate([0, 3, 0])
+			// surface retainer
+			translate([1, 3, 0])
 				polycyl(d=6, h=15);
 		}
-		translate([0, 3 , -1])
+		// surface retainer hole
+		translate([1, 3 , -1])
 			polyhole(d=3, h=17);
-	    // glass plate and print surface
+	    
+		// surface plate
 	    translate([3.5, 3.5, 12])
 			cube([20, 20, 3.5]);
 	    translate([4.24, 4.24, 12])
 			polyhole(d=2, h=3.5);
-	    // heated pcb (214x214x1.5mm
-	    translate([7, 7, 10.3])
-			cube([20, 20, 1.75]);
-	    translate([7.74, 7.74, 10.3])
-			polyhole(d=2, h=3.5);
-	    // base plate
+		
+	    // space for silicone mat heater
+	    translate([10, 10, 10.2])
+			cube([20, 20, 2]);
+	    
+		// base plate
 	    translate([7, 7, -.25])
 			cube([20, 20, 3]);
 	    translate([7.74, 7.74, -.25])
