@@ -19,15 +19,15 @@ motorcc=31;	// center-center of the motor screw holes for nema17
 			translate([0, -width/2, 0])
 				cube([frameY, width, thickness]);
 			hull(){
-				translate([-frameY, -frameX/2, 0])
+				translate([thickness, -frameX/2, 0])
 					cube([frameY, frameX, thickness]);
-				translate([-frameY, 0, smoothRodOffset])
+				translate([thickness, 0, smoothRodOffset])
 					rotate([0, 90, 0])
 					polycyl(d=frameX, h=frameY);
 			}
-			translate([-frameY-M5*1.5, -frameX/2, 0])
+			translate([thickness+M5*1.5, -frameX/2, 0])
 				cube([frameY, frameX, thickness]);
-			translate([-frameY-M5*1.5, 0, 0])
+			translate([thickness+frameY+M5*1.5, 0, 0])
 				polycyl(d=frameX, h=thickness);
 
 			// spacer between mounting surface and nemaMount
@@ -68,7 +68,7 @@ motorcc=31;	// center-center of the motor screw holes for nema17
 		}// end union
 
 		// smooth rod hole
-		translate([-frameY-1, 0, smoothRodOffset])
+		translate([thickness, 0, smoothRodOffset])
 			rotate([0, 90, 0])
 			polyhole(d=smoothRod, h=frameY+1);
 
@@ -98,7 +98,7 @@ motorcc=31;	// center-center of the motor screw holes for nema17
 		mirror([0,1,0])
 			translate([frameY/2, width/2-M5-thickness, -1])
 				polyhole(d=M5,h=thickness+2);
-		translate([-frameY-M5*1.5, 0, -1])
+		translate([thickness+frameY+M5*1.5, 0, -1])
 			polyhole(d=M5, h=thickness+2);
 
 	}// end difference
